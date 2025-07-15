@@ -9,7 +9,7 @@ export default function FormComponent() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  /*const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:5000/api/form', form);
@@ -18,7 +18,20 @@ export default function FormComponent() {
     } catch (error) {
       setStatus('❌ Error submitting form.');
     }
-  };
+  };*/
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await axios.post('https://airtable-react-nodejs-api-backend.vercel.app/api/form', form);
+    setStatus('✅ Submitted successfully!');
+    setForm({ name: '', email: '', message: '' });
+  } catch (error) {
+    console.error(error);
+    setStatus('❌ Error submitting form.');
+  }
+};
+
 
   return (
     <div className='formSection'>
