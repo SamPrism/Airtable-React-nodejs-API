@@ -22,7 +22,7 @@ export default function FormComponent() {
 
   return (
     <div className='formSection'>
-      <h1>Airtable Form</h1>
+      <h1>Airtable Form API</h1>
       <form onSubmit={handleSubmit}>
         <input
           name="name"
